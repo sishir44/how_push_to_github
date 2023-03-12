@@ -18,7 +18,8 @@ II_WAYS:
     - git commit -m "first commit"
     - git status   --> get nothing to commit msg 
     - git branch --> to get branch msg
-    - git remote add origin https://github.com/sishir44/complete_restful_api.git
+    - git remote add origin paste_github_repository_link
+        eg: git remote add origin https://github.com/sishir44/complete_restful_api.git
     - git remote -->get origin msg
     - git push -u origin master
 
