@@ -1,0 +1,77 @@
+GIT SSH SETUP - Add Files to Github:
+
+* Secure Shell, or SSH is used to create a secure channel between a local and remote computer.
+* SSH is commonly used for secure terminal access and file transfer.
+* It cam also be used to create a secure tunnel b/w computers for forwarding other n/w connections that are not normally encrypted.
+** It always comes in key pair: 
+    Public key – Everyone can see it, no need to protect it. (for encryption function)
+    Private key – Stays in computer, must be protected. (for decryption function)
+
+
+STEP: Add Files to Github
+
+1 - create github account.
+2 - Install git on our system.
+3 - Go to VS code/inside our project and type below command:
+    git init --> to initialize git
+
+4 - Make sure that we shouldn't add node_modules.
+5 - Make a new file inside our project called : .gitignore and write node_modules inside this file.
+    Files we are adding in .gitignore file which we won't be adding in github.
+
+6 - Type below command in terminal:
+    * git status
+    * git init
+    * git add .
+    * git commit -m "first commit"
+    * git status   --> for checking whether completed or not
+
+7 - Create one new repository in our github account and copy the link for new repository
+8 - Follow below command in terminal:
+    * git remote  --> to show origin
+    * paste the link for new repository
+    * git remote  --> to show origin
+
+9 - Generate SSH keys and see keys by using below command:
+    * ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+    * Note: email should be your github email.
+    * ls -/.ssh  --> to see list of ssh keys
+    
+10 - We need to create a agent to add private key in local and public in github:
+    * eval "$(ssh-agent -s)"
+
+11 - Add private key in local system.
+    * ssh-add -k ~/.ssh/id_rsa  --> for private
+
+12 - Add public key in github, goto setting / SSH and GPG keys / create a new SSH and give any name.
+13 - To see public key use below command:
+    * cat ~/.ssh/id_rsa.pub  and paste that key in github SSH description
+
+14 - To check whether our private and public keys are commencted or not:
+    * ssh -T git@github.com
+    * git branch --> to get whether it is master or main
+    * git push -u origin main or master
+
+
+
+HOW TO UPDATE IN GITHUB:
+
+1 - open the project in VS code
+2 - Do whatever we need changed.
+3 - Use below command to push agin in github:
+    * git status --> modified status in red
+    * git add .
+    * git status --> modified status in green
+    * git commit -m "modified commit"
+    * git push
+
+
+HOW TO GET CODE FROM GITHUB:
+* Just keep: vscode.dev --> after https 
+https://vscode.dev/github.com/sishir44.com
+
+* Type command in terminal:
+    * git clone paste_http_or_ssh_link from github for particular project
+    * npm install
+
+    NOTE: we can use wetransfer.com site to transfer zip file to others.
